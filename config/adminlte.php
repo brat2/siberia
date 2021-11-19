@@ -247,12 +247,6 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Форма',
-            'route'         => 'form',
-            'icon'        => 'far fa-fw fa-file',
-            'label_color' => 'success',
-        ],
-        [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
@@ -448,7 +442,7 @@ return [
 
     'iframe' => [
         'default_tab' => [
-            'url' => 'admin/form',
+            'url' => null,
             'title' => null,
         ],
         'buttons' => [

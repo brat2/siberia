@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', [AdminController::class, 'index']);
+Route::get('admin', [CategoryController::class, 'index']);
 
-Route::get('admin/form', [AdminController::class, 'form'])->name('form');
+Route::post('admin', [CategoryController::class, 'index']);
 
 Auth::routes();
 
