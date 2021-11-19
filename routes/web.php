@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('admin', [AdminController::class, 'index']);
 
-Route::get('admin/form', [AdminController::class, 'form']);
+Route::get('admin/form', [AdminController::class, 'form'])->name('form');
 
 Auth::routes();
 

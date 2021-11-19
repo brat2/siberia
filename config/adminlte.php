@@ -248,7 +248,7 @@ return [
         ],
         [
             'text'        => 'Форма',
-            'url'         => 'admin/form',
+            'route'         => 'form',
             'icon'        => 'far fa-fw fa-file',
             'label_color' => 'success',
         ],
@@ -448,7 +448,7 @@ return [
 
     'iframe' => [
         'default_tab' => [
-            'url' => null,
+            'url' => 'admin/form',
             'title' => null,
         ],
         'buttons' => [
