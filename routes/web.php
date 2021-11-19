@@ -19,11 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/form', function () {
-    return view('form');
-});
-
 Route::get('admin', [AdminController::class, 'index']);
+
+Route::get('admin/form', [AdminController::class, 'form']);
 
 Auth::routes();
 
