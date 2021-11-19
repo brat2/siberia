@@ -8,10 +8,9 @@
                     <i class="fas fa-lg fa-user"></i>
                 </div>
             </x-slot>
-            <option>Администраторы</option>
-            <option>Модераторы</option>
-            <option>Редакторы</option>
-            <option>Гости</option>
+            @foreach ($categories as $category)
+                <option>{{ $category->name }}</option>
+            @endforeach
         </x-adminlte-select>
     </form>
 @stop

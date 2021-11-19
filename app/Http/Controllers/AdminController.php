@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserCategory;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,6 +14,7 @@ class AdminController extends Controller
 
     public function form()
     {
-        return view('form');
+        $categories = UserCategory::all();
+        return view('form', ['categories' => $categories]);
     }
 }
