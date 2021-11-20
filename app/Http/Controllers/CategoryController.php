@@ -12,11 +12,11 @@ class CategoryController extends Controller
     {
         $select = $request->input('categories') ?? [];
 
-        $categories = UserCategory::select('name')->get();
+        $categories = UserCategory::select('id', 'name')->get();
 
         $users = User::with('categories:id,name')
             ->whereHas('categories', function ($query) use ($select) {
-                $query->whereIn('name', $select);
+                $query->whereIn('user_categories.id', $select);
             })->get();
 
         return view('admin', [

@@ -11,7 +11,7 @@
                 </div>
             </x-slot>
             @foreach ($categories as $category)
-                <option>{{ $category->name }}</option>
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </x-adminlte-select>
         <x-adminlte-button class="btn-flat" type="submit" label="Отфильтровать" theme="success" />
