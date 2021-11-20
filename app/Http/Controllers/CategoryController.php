@@ -14,13 +14,10 @@ class CategoryController extends Controller
 
         $categories = UserCategory::select('name')->get();
 
-        $users = User::join('user_user_category as cat_us', 'cat_us.user_id', '=', 'users.id')
-            ->join('user_categories as cat', 'cat_us.user_category_id', '=', 'cat.id')
-            ->whereIn('cat.name', $select)
-            ->select('users.id', 'users.name', 'users.email', 'cat.name as categories')
-            ->get();
-
-        // dd($users);
+        $users = User::with('categories:id,name')
+            ->whereHas('categories', function ($query) use ($select) {
+                $query->whereIn('name', $select);
+            })->get();
 
         return view('admin', [
             'categories' => $categories,
