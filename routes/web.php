@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin', [CategoryController::class, 'index']);
+Route::get('admin', [CategoryController::class, 'index'])->name('index');
 
-Route::post('admin', [CategoryController::class, 'index']);
+Route::post('admin', [CategoryController::class, 'select']);
 
 Auth::routes();
 

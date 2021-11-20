@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $select = $request->input('categories') ?? [];
+        $select = $request->old('categories') ?? [];
 
         $categories = Category::select('id', 'name')->get();
 
@@ -23,5 +23,10 @@ class CategoryController extends Controller
             'categories' => $categories,
             'clients' => $clients
         ]);
+    }
+
+    public function select()
+    {
+        return redirect()->route('index')->withInput();
     }
 }
