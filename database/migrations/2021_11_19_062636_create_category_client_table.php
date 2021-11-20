@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserUserCategoryTable extends Migration
+class CreateCategoryClientTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreateUserUserCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_user_category', function (Blueprint $table) {
+        Schema::create('category_client', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('user_category_id');
+            $table->unsignedBigInteger('client_id');
+            $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
-            $table->foreign('user_id')
+            $table->foreign('client_id')
             ->references('id')
-            ->on('users')
+            ->on('clients')
             ->cascadeOnDelete();
 
-            $table->foreign('user_category_id')
+            $table->foreign('category_id')
             ->references('id')
-            ->on('user_categories')
+            ->on('categories')
             ->cascadeOnDelete();
         });
     }
@@ -38,6 +38,6 @@ class CreateUserUserCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_user_category');
+        Schema::dropIfExists('category_client');
     }
 }

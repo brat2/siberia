@@ -23,12 +23,12 @@
     $heads = ['ID', 'Имя клиента', 'Категории'];
     @endphp
     <x-adminlte-datatable id="table" :heads="$heads" head-theme="dark">
-        @foreach ($users as $user)
+        @foreach ($clients as $client)
             <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
+                <td>{{ $client->id }}</td>
+                <td>{{ $client->name }}</td>
                 <td>
-                    @foreach ($user->categories as $category)
+                    @foreach ($client->categories as $category)
                         <div>{{ $category->name }}</div>
                     @endforeach
                 </td>

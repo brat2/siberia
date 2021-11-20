@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\UserCategory;
+use App\Models\Category;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -12,16 +12,16 @@ class CategoryController extends Controller
     {
         $select = $request->input('categories') ?? [];
 
-        $categories = UserCategory::select('id', 'name')->get();
+        $categories = Category::select('id', 'name')->get();
 
-        $users = User::with('categories:id,name')
+        $clients = Client::with('categories:id,name')
             ->whereHas('categories', function ($query) use ($select) {
-                $query->whereIn('user_categories.id', $select);
+                $query->whereIn('categories.id', $select);
             })->get();
 
         return view('admin', [
             'categories' => $categories,
-            'users' => $users
+            'clients' => $clients
         ]);
     }
 }

@@ -1,10 +1,10 @@
 <!-- Переделать выборку через id -->
 
-Создать нормальную структуру моделей
+<!-- Создать нормальную структуру моделей
 User - users
 Client - clients
 Category - categories
-- category_user
+- category_user -->
 
 Наладить работу JQuery
 
