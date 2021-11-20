@@ -20,7 +20,7 @@
     {{-- Minimal example / fill data using the component slot --}}
 
     @php
-    $heads = ['ID', 'Имя', 'Категории'];
+    $heads = ['ID', 'Имя клиента', 'Категории'];
     @endphp
     <x-adminlte-datatable id="table" :heads="$heads" head-theme="dark">
         @foreach ($users as $user)
