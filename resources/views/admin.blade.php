@@ -30,22 +30,33 @@
         <x-adminlte-button class="btn-flat" type="submit" label="Отфильтровать" theme="success" />
     </form>
 
-
-    @php
-    $heads = ['ID', 'Имя клиента', 'Категории'];
-    @endphp
-    <x-adminlte-datatable id="table" :heads="$heads" head-theme="dark">
-        @foreach ($clients as $client)
+    <table class="table table-bordered">
+        <thead class="bg-secondary
+        ">
             <tr>
-                <td>{{ $client->id }}</td>
-                <td>{{ $client->name }}</td>
-                <td>
-                    @foreach ($client->categories as $category)
-                        <div>{{ $category->name }}</div>
-                    @endforeach
-                </td>
+                <th style="width: 20px">ID</th>
+                <th>Имя клиента</th>
+                <th>e-mail</th>
+                <th>Телефон</th>
+                <th style="width: 200px">Категории</th>
             </tr>
-        @endforeach
-    </x-adminlte-datatable>
+        </thead>
+        <tbody class="bg-white
+        ">
+            @foreach ($clients as $client)
+                <tr>
+                    <td>{{ $client->id }}</td>
+                    <td>{{ $client->name }}</td>
+                    <td>{{ $client->email }}</td>
+                    <td>{{ $client->phone }}</td>
+                    <td>
+                        @foreach ($client->categories as $category)
+                            <div>{{ $category->name }}</div>
+                        @endforeach
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 
 @stop
