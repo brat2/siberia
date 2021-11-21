@@ -250,7 +250,7 @@ return [
             'text'        => 'pages',
             'url'         => 'admin/pages',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 22,
+            'label'       => null,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

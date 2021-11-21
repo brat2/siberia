@@ -9,5 +9,4 @@ class Category extends Model
 {
     use HasFactory;
 
-
 }
