@@ -14,23 +14,13 @@ class CategoryController extends Controller
 
         $categories = Category::select('id', 'name')->get();
 
-        // $clients = Client::with('categories:id,name')
-        //     ->whereHas('categories', function ($query) use ($select) {
-        //         $query->whereIn('categories.id', $select);
-        //     })->get();
-
-
         $clients = Client::with('categories:id,name')
             ->whereHas('categories', function ($query) use ($select) {
-                $query->select('categories.id')
-                    // ->whereIn('categories.id', $select)
-                    ->whereJsonContains('json_arrayagg(categories.id)', $select)
-                    ->groupBy('categories.id')
-                  //  ->havingRaw('count(*) = 2')
-                   ;
+                $query->select('clients.id')
+                    ->whereIn('categories.id', $select)
+                    ->groupBy('clients.id')
+                    ->havingRaw('count(*) = ?', [count($select)]);
             })->get();
-
-        dump($clients);
 
         return view('admin', [
             'categories' => $categories,
